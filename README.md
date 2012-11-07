@@ -39,6 +39,26 @@ Simply instantiate the library and call the API
 	exit;
 
 
+	//custom data object
+	$app_key  = '123';
+	$email    = 'ben.edmunds@gmail.com';
+	$password = '12345678';
+
+	$appcelerator = new Appcelerator($app_key, $email, $password);
+    	$data = 'fields='.json_encode(array(
+	        'make'  => 'toyota', 
+        	'model' => 'tacoma', 
+        	'year'  => 2007, 
+        	'color' => 'blue'
+    	));
+ 
+    	$output = $appcelerator->send_request('objects/cars/create.json', 'POST', $data);
+ 
+    	print_r($output);
+    	exit;
+
+
+
 See [the Appcelerator documentation](http://cloud.appcelerator.com/docs/api/v1/statuses/info) for API details.
 
 Class created by [Ben Edmunds](http://benedmunds.com) and [Shealan Foreshaw](http://twitter.com/#!/shealan) for [Swipe & Tap](http://twitter.com/#!/swipeandtap).
